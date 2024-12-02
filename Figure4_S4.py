@@ -15,9 +15,9 @@ import cartopy.crs as ccrs
 from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 
 # %% Figure 4 and S4
-def Fig4_S4(dpi, figure_path, data_path, shp_path):
+def Fig4_S4(dpi, figure_path, data_path):
     ## Coastline
-    taiwan_coastline = gpd.read_file(shp_path+'/Taiwan_WGS84.shp')
+    taiwan_coastline = gpd.read_file(data_path+'/Taiwan_WGS84.shp')
     taiwan_coastline = taiwan_coastline.set_geometry('geometry')
     ## Terrain
     dem20 = nc.Dataset(data_path+'/dem20_TCCIPInsolation.nc')
@@ -33,7 +33,7 @@ def Fig4_S4(dpi, figure_path, data_path, shp_path):
     nonforest = (MCFfraction[:, :, 0] == 25)
 
     # Load your shapefile 
-    Forest = gpd.read_file(shp_path+'/Forest2017.shp')
+    Forest = gpd.read_file(data_path+'/Forest2017.shp')
     Forest = Forest.set_geometry('geometry')
 
     ## Reduction Ratio without rainy data

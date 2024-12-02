@@ -13,10 +13,10 @@ import cartopy.crs as ccrs
 from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 
 # Figure 3 and S3
-def Fig3_S3(dpi, figure_path, data_path, shp_path):
+def Fig3_S3(dpi, figure_path, data_path):
     # Data Preparation
     ## Coastline
-    taiwan_coastline = gpd.read_file(shp_path+'/Taiwan_WGS84.shp')
+    taiwan_coastline = gpd.read_file(data_path+'/Taiwan_WGS84.shp')
     taiwan_coastline = taiwan_coastline.set_geometry('geometry')
     ## Terrain
     dem20 = nc.Dataset(data_path+'/dem20_TCCIPInsolation.nc')
@@ -188,7 +188,7 @@ def Fig3_S3(dpi, figure_path, data_path, shp_path):
     for ax, label in zip([map_axes[0], scatter_axes[0], box_axes[0], 
                         map_axes[1], scatter_axes[1], box_axes[1]], ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']):
         ax.text(0.05, 1.05, label, transform=ax.transAxes, fontsize=14, va='center', ha='center')
-    fig.savefig(figure_path+'Figure3.png',bbox_inches='tight', dpi = 600)
+    fig.savefig(figure_path+'/Figure3.png',bbox_inches='tight', dpi = 600)
     plt.show()
     # MAM, SOP
     period_parameters = {
@@ -242,5 +242,5 @@ def Fig3_S3(dpi, figure_path, data_path, shp_path):
     for ax, label in zip([map_axes[0], scatter_axes[0], box_axes[0], 
                         map_axes[1], scatter_axes[1], box_axes[1]], ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']):
         ax.text(0.05, 1.05, label, transform=ax.transAxes, fontsize=14, va='center', ha='center')
-    fig.savefig(figure_path+'FigureS3.png',bbox_inches='tight', dpi = 600)
+    fig.savefig(figure_path+'/FigureS3.png',bbox_inches='tight', dpi = 600)
     plt.show()

@@ -50,7 +50,7 @@ def CWA_StationData(istno, data_path):
     return df
 
 # %% Figure 1
-def Fig1(dpi, figure_path, data_path, shp_path):
+def Fig1(dpi, figure_path, data_path):
     CWAStation = {'Alishan':{'data':CWA_StationData('467530', data_path), 'color':'navy', 'type':'MCF', 'lon':120.813242, 'lat':23.508208},
                   'Chiayi':{'data':CWA_StationData('467480', data_path), 'color':'darkred', 'type':'no forest', 'lon':120.432906, 'lat':23.495925}}
     
@@ -207,8 +207,8 @@ def Fig1(dpi, figure_path, data_path, shp_path):
             ncol=3)
 
     # Load shapefile 
-    MCF = gpd.read_file(shp_path+'/MCF2017.shp')
-    nonMCF = gpd.read_file(shp_path+'/nonMCF2017.shp')
+    MCF = gpd.read_file(data_path+'/MCF2017.shp')
+    nonMCF = gpd.read_file(data_path+'/nonMCF2017.shp')
     MCF = MCF.set_geometry('geometry')
     nonMCF = nonMCF.set_geometry('geometry')
 
@@ -222,7 +222,7 @@ def Fig1(dpi, figure_path, data_path, shp_path):
     Chiayi_station = Chiayi_station.set_geometry('geometry')
     Alishan_station = Alishan_station.set_geometry('geometry')
 
-    taiwan_coastline = gpd.read_file(shp_path+'/Taiwan_WGS84.shp')
+    taiwan_coastline = gpd.read_file(data_path+'/Taiwan_WGS84.shp')
     taiwan_coastline = taiwan_coastline.set_geometry('geometry')
 
     ax = fig.add_subplot(gs[1, 0])

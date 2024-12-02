@@ -14,12 +14,12 @@ import cartopy.feature as cfeature
 from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
 
 # Figure S1 and S2
-def FigS1_S2(dpi, figure_path, data_path, shp_path):
+def FigS1_S2(dpi, figure_path, data_path):
     ## Coastline
-    taiwan_coastline = gpd.read_file(shp_path+'/Taiwan_WGS84.shp')
+    taiwan_coastline = gpd.read_file(data_path+'/Taiwan_WGS84.shp')
     taiwan_coastline = taiwan_coastline.set_geometry('geometry')
     ## Terrain
-    taiwan_dem20 = gpd.read_file(shp_path+'/Taiwan_2000m_WGS84.shp')
+    taiwan_dem20 = gpd.read_file(data_path+'/Taiwan_2000m_WGS84.shp')
     taiwan_dem20 = taiwan_dem20.set_geometry('geometry')
     dem20 = nc.Dataset(data_path + '/dem20_TCCIPInsolation.nc')
     lon = dem20.variables['lon'][:]
