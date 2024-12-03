@@ -1,3 +1,6 @@
-# Before running codes, please run below code under your data-path in linux:
-* 'cat ReductionRatio_part* > ReductionRatio_daily_20152019.npy', this will resemble 'ReductionRatio_daily_20152019.npy' because it is too large to upload to Github.
-* 'gzip -d rain.20112019.daily.1km-grid-v2.nc.gz', this will unzip 'rain.20112019.daily.1km-grid-v2.nc' because it is too large to upload to Github. 
+### Data for analyses are available at Zenodo (doi: 10.5281/zenodo.14259109)
+* MainFigures.ipynb: Jupyter Notebook for reproduce all figures in the article.
+* Figure*.py: Python file for reproduce each figure in the article.
+* Figures folder: Contain each figure in the article.
+  
+Note: All results were analyzed and visualized by Python version 3.9.18
